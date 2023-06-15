@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 
 import java.util.HashMap;
@@ -28,12 +35,37 @@ public class MainActivity2 extends AppCompatActivity implements Asynchtask {
                 b.getString("Notificaciones"));
 
 
-        Map<String, String> datos = new HashMap<String, String>();
+        /*Map<String, String> datos = new HashMap<String, String>();
         WebService ws= new WebService(
                 "https://revistas.uteq.edu.ec/ws/login.php?usr="
                         + b.getString("Nombre") + "&pass=" + b.getString("Contraseña"),
                 datos, MainActivity2.this, MainActivity2.this);
-        ws.execute( "GET");
+        ws.execute( "GET");*/
+        //JSON web service
+
+       /* RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://revistas.uteq.edu.ec/ws/login.php?usr="
+                + b.getString("Nombre") + "&pass=" + b.getString("Contraseña");
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        TextView txthoal=(TextView) findViewById(R.id.id6);
+                        txthoal.setText("Response is: "+ response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        TextView txthoal=(TextView) findViewById(R.id.id6);
+                        txthoal.setText("That didn't work!");
+                    }
+                });
+        queue.add(stringRequest);*/
+        //Andriod voley//
+        //kushki
+
+
 
     }
 
